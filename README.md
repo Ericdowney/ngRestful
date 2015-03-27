@@ -35,6 +35,30 @@ Here is a list of all available attributes for the ngRestful directive.  While i
 
 The purpose of this directive is to take the place of your normal ```<form></form>``` and with the same configuration as the ngRestful directive handle your restful api call. As the previous directive allows "POST", "PUT", etc, this directive will allow "GET", even though the use cases for a get request on a form submit might be small.  On the ngRestful directive the "rest-params" attribute is the object that is sent to the api call, however, on the ngRestfulForm directive the "rest-model" is the object that is sent through the api call.
 
+#### Usage
+
+```html
+<ng-restful-form        rest-model="myDataModel"
+                        rest-url="http://www.route.com/"
+                        rest-method="POST"
+                        rest-success="successMethod"
+                        rest-error="errorMethod">
+                        
+            <div class="form-input>
+                        <h4>Title</h4>
+                        <input ng-model="myDataModel.inputA">
+            </div>
+            
+            <div class="form-input>
+                        <h4>Title</h4>
+                        <input ng-model="myDataModel.inputB">
+            </div>
+            
+            <input type="submit">
+
+</ng-restful-form>
+```
+
 | Atrributes        | Binding | Example Values          |
 |-------------------|:-------:|-------------------------|
 | rest-model        | =       | {}                      |

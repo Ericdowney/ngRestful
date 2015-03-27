@@ -3,6 +3,16 @@ Angularjs directives for making restful api calls.
 
 ## ng-restful
 
+| Atrributes        | Binding | Example Values          |
+|-------------------|:-------:|-------------------------|
+| rest-model        | =       | {}                      |
+| rest-url          | =       | 'http://route'          |
+| rest-method       | @       | GET, PUT, POST, etc.    |
+| rest-params       | =       | {}                      |
+| rest-success      | &       | function () {}          |
+| rest-error        | &       | function () {}          |
+| rest-watch-url    | @       | true, false             |
+| rest-watch-params | @       | true, false             |
 
 ## ng-restful-form
 

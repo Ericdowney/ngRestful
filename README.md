@@ -3,7 +3,7 @@ Angularjs directives for making restful api calls.
 
 ## ng-restful
 
-Here is a list of all available attributes for the ngRestful directive.  While it supports all major rest methods, GET, PUT, POST, it is more valuable to use this directive for GET requests only because this directive will make the rest call once your page and angular load.  However, if you have a use case for immediately "Posting" or "Puting", this directive will still execute the rest call.
+Here is a list of all available attributes for the ngRestful directive.  While it supports all major rest methods, GET, PUT, POST, it is more valuable to use this directive for GET requests only because this directive will make the rest call once your page and angular load.  However, if you have a use case for immediately "Posting" or "Puting", this directive will still execute the rest call.  The "rest-model" attribute is the object that will be filled with the data coming back from the service call and "rest-params" attribute is the object that is sent to the service call.
 
 #### Usage
 ```html
@@ -32,6 +32,16 @@ Here is a list of all available attributes for the ngRestful directive.  While i
 | rest-watch-params | @       | true, false             |
 
 ## ng-restful-form
+
+The purpose of this directive is to take the place of your normal ```<form></form>``` and with the same configuration as the ngRestful directive handle your restful api call. As the previous directive allows "POST", "PUT", etc, this directive will allow "GET", even though the use cases for a get request on a form submit might be small.  On the ngRestful directive the "rest-params" attribute is the object that is sent to the api call, however, on the ngRestfulForm directive the "rest-model" is the object that is sent through the api call.
+
+| Atrributes        | Binding | Example Values          |
+|-------------------|:-------:|-------------------------|
+| rest-model        | =       | {}                      |
+| rest-url          | =       | 'http://route'          |
+| rest-method       | @       | GET, PUT, POST, etc.    |
+| rest-success      | &       | function () {}          |
+| rest-error        | &       | function () {}          |
 
 
 # License

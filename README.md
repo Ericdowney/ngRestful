@@ -3,7 +3,7 @@ Angularjs directives for making restful api calls.
 
 ## ng-restful
 
-Here is a list of all available attributes for the ngRestful directive.  While it supports all major rest methods, GET, PUT, POST, it is more valuable to use this directive for GET requests only because this directive will make the rest call once your page and angular load.  However, if you have a use case for immediately "Posting" or "Puting", this directive will still execute the rest call.  The "rest-model" attribute is the object that will be filled with the data coming back from the service call and "rest-params" attribute is the object that is sent to the service call.
+ngRestful is an angular directive meant to replace your javascript responsible for making restful service calls.  While it supports all major rest methods, GET, PUT, POST, it is more valuable to use this directive for GET requests only because this directive will make the rest call once your page and angular load.  However, if you have a use case for immediately "Posting" or "Puting", this directive will still execute the rest call.  The "rest-model" attribute is the object that will be filled with the data coming back from the service call and "rest-params" attribute is the object that is sent to the service call.
 
 #### Usage
 ```html

@@ -1,10 +1,10 @@
 {
   "name": "ngRestful",
   "version": "0.0.1",
-  "main": "./ngRestful.js",
+  "main": "./src/ngRestful.js",
   "ignore": [],
-  "dependencies": {},
-  "homepage": "https://github.com/Ericdowney/ngRestful",
-  "_release": "0.0.1",
-  "_source": "git://github.com/Ericdowney/ngRestful.git"
+  "dependencies": {
+    "angular": "latest"
+  },
+  "homepage": "https://github.com/Ericdowney/ngRestful"
 }

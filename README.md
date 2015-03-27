@@ -3,6 +3,23 @@ Angularjs directives for making restful api calls.
 
 ## ng-restful
 
+Here is a list of all available attributes for the ngRestful directive.  While it supports all major rest methods, GET, PUT, POST, it is more valuable to use this directive for GET requests only because this directive will make the rest call once your page and angular load.  However, if you have a use case for immediately "Posting" or "Puting", this directive will still execute the rest call.
+
+#### Usage
+```html
+<ng-restful rest-model="myDataModel"
+            rest-url="'http://www.route.com/'"
+            rest-method="GET"
+            rest-params="params"
+            rest-success="successMethod"
+            rest-error="errorMethod"
+            rest-watch-url="true"
+            rest-watch-params="false">
+
+    <div ng-repeat="item in myDataModel">{{item}}</div>
+</ng-restful>
+```
+
 | Atrributes        | Binding | Example Values          |
 |-------------------|:-------:|-------------------------|
 | rest-model        | =       | {}                      |

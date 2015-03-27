@@ -1,0 +1,46 @@
+<html>
+	<head>
+		<title>ngRestful</title>
+	</head>
+	<body>
+
+		<!-- ng-restful directive will immediatly execute on angular load. -->
+		<!-- ng-restful directive is primarly effective for immediate "get" calls to populate your site with external data. -->
+		<ng-restful	rest-model="myDataModel"
+					rest-url="'http://www.myRestUrl.com'"
+					rest-method="GET"
+					rest-params="params"
+					rest-success="successMethod"
+					rest-error="errorMethod"
+					rest-watch-url="false"
+					rest-watch-params="false">
+
+			<!-- data model "myDataModel" is populated when the rest api call returns. -->
+			<div ng-repeat="item in myDataModel">{{item}}</div>
+
+		</ng-restful>
+
+		<!-- ng-restful-form will execute rest api call when "restfulFormSubmit" is called. -->
+		<!-- "myDataModel" will be sent through the rest api call as is. -->
+		<ng-restful-form	rest-model="myDataModel"
+							rest-url="'http://www.myFormSubmitRestUrl.com'"
+							rest-method="POST"
+							rest-success="successMethod"
+							rest-error="errorMethod"
+							novalidate>
+
+			<div class="form-input">
+				<h4>Title</h4>
+				<input ng-model="myDataModel.inputA">
+			</div>
+
+			<div class="form-input">
+				<h4>Title</h4>
+				<input ng-model="myDataModel.inputB">
+			</div>
+
+			<!-- ng-restful-form has a method on directive $scope called "restfulFormSubmit". This is the method that will submit the form via rest api -->
+			<button ng-click="restfulFormSubmit()">Submit</button>
+		</ng-restful-form>
+	</body>
+</html>

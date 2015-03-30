@@ -77,10 +77,11 @@
 				};
 			},
 			link: function (scope, elem, attrs, ngCtrl) {
-				elem.bind('submit', function () {
+				elem.bind('submit', function ($event) {
+					$event.preventDefault();
 					scope.restfulFormSubmit();
 				});
-			};
+			}
 		};
 	}]);
 })(window, window.angular);

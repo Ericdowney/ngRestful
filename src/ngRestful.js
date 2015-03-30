@@ -21,18 +21,25 @@
 			template: "<div class='ng-restful' ng-transclude></div>",
 			controller: function ($scope) {
 
+				var runRestSuccess = function (data, status, config, headers) {
+					if ($scope.restSuccess && $scope.restSuccess != "") {
+						$scope.restSuccess()(data, status, config, headers);
+					}
+				};
+				var runRestError = function (data, status, config, headers) {
+					if ($scope.restError && $scope.restError != "") {
+						$scope.restError()(data, status, config, headers);
+					}
+				};
+
 				var runRestCall = function () {
 					$http[$scope.restMethod.toLowerCase()]($scope.restUrl, $scope.restParams).success(function (data, status, config, headers) {
-
 						$scope.restModel = data;
-						$scope.restSuccess()(data, status, config, headers);
-
+						runRestSuccess(data, status, config, headers);
 					}).error(function (data, status, config, headers) {
-
-						$scope.restError()(data, status, config, headers);
-
+						runRestError(data, status, config, headers);
 					});
-				}
+				};
 
 				if ($scope.restWatchUrl == true) {
 					$scope.$watch('restUrl', function () {
@@ -64,14 +71,25 @@
 			template: "<form class='ng-restful-form' ng-transclude></form>",
 			controller: function ($scope) {
 
+				var runRestSuccess = function (data, status, config, headers) {
+					if ($scope.restSuccess && $scope.restSuccess != "") {
+						$scope.restSuccess()(data, status, config, headers);
+					}
+				};
+				var runRestError = function (data, status, config, headers) {
+					if ($scope.restError && $scope.restError != "") {
+						$scope.restError(data, status, config, headers);
+					}
+				};
+
 				$scope.restfulFormSubmit = function () {
 					$http[$scope.restMethod.toLowerCase()]($scope.restUrl, $scope.restModel).success(function (data, status, config, headers) {
 
-						$scope.restSuccess()(data, status, config, headers);
+						runRestSuccess()(data, status, config, headers);
 
 					}).error(function (data, status, config, headers) {
 
-						$scope.restError()(data, status, config, headers);
+						runRestError(data, status, config, headers);
 
 					});
 				};
